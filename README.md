@@ -16,3 +16,7 @@ Requirement No.3
 - whenPlayAndWholeVerticalLineThenWinner
 - whenPlayAndTopBottomDiagonalLineThenWinner
 - whenPlayAndBottomTopDiagonalLineThenWinner
+
+Requirement No.4
+- whenAllBoxesAreFilledThenDraw
+

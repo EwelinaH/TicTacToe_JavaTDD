@@ -15,8 +15,22 @@ public class TicTacToe {
 
         if (isWin()){
             return "Wygral " + lastPlayer;
+        } else if (isDraw()){
+            return "Wynik remisowy";
+        }else {
+            return "Brak zwyciezcy";
         }
-        return "Brak zwyciezcy";
+    }
+
+    private boolean isDraw(){
+        for (int x = 0; x < SIZE; x++ ){
+            for (int y = 0; y < SIZE; y++){
+                if (board[x][y] == '\0'){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     private boolean isWin(){
