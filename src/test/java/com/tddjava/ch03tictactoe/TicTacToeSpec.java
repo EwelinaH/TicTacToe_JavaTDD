@@ -65,7 +65,37 @@ public class TicTacToeSpec {
         assertEquals("Wygral X", actual);
     }
 
+    @Test
+    public void whenPlayAndWholeVerticalLineThenWinner(){
+        ticTacToe.play(2,1);
+        ticTacToe.play(1,1);
+        ticTacToe.play(3,1);
+        ticTacToe.play(1,2);
+        ticTacToe.play(2,2);
+        String actual = ticTacToe.play(1,3);
+        assertEquals("Wygral 0", actual);
+    }
 
+
+    @Test
+    public void whenPlayAndTopBottomDiagonalLineThenWinner(){
+        ticTacToe.play(1,1);
+        ticTacToe.play(1,2);
+        ticTacToe.play(2,2);
+        ticTacToe.play(1,3);
+        String actual = ticTacToe.play(3,3);
+        assertEquals("Wygral X", actual);
+    }
+
+    @Test
+    public void whenPlayAndBottomTopDiagonalLineThenWinner(){
+        ticTacToe.play(1,3);
+        ticTacToe.play(1,1);
+        ticTacToe.play(2,2);
+        ticTacToe.play(1,2);
+        String actual = ticTacToe.play(3,1);
+        assertEquals("Wygral X", actual);
+    }
 
 
 }

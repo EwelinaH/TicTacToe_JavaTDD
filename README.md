@@ -14,3 +14,5 @@ Requirement No.3
 - whenPlayThenNoWinner
 - whenPlayAndWholeHorizontalLineThenWinner
 - whenPlayAndWholeVerticalLineThenWinner
+- whenPlayAndTopBottomDiagonalLineThenWinner
+- whenPlayAndBottomTopDiagonalLineThenWinner
