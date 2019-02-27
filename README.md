@@ -9,3 +9,8 @@ Requirement No.1
 Requirement No.2
 - givenFirstTurnWhenNextPlayerThenX
 - givenLastTurnWasXWhenNextPlayerThen0
+
+Requirement No.3
+- whenPlayThenNoWinner
+- whenPlayAndWholeHorizontalLineThenWinner
+- whenPlayAndWholeVerticalLineThenWinner

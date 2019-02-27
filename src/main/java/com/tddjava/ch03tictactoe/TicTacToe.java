@@ -6,11 +6,18 @@ public class TicTacToe {
 
     private char lastPlayer = '\0';
 
-    public void play(int x, int y) {
+    public String play(int x, int y) {
         checkAxis(x);
         checkAxis(y);
         setBox(x, y);
         lastPlayer = nextPlayer();
+
+        for(int index = 0; index < 3; index++){
+            if (board[0][index] == lastPlayer && board[1][index] == lastPlayer && board[2][index] == lastPlayer){
+                return "Wygral " + lastPlayer;
+            }
+        }
+        return "Brak zwyciezcy";
     }
     private void checkAxis(int axis) {
         if (axis < 1 || axis > 3) {
