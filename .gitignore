@@ -5,6 +5,7 @@ gradlew.bat
 gradle
 .DS_Store
 .gradle/
+build/
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Java template
