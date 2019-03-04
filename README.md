@@ -1,7 +1,7 @@
 
 This is a simple TicTacToe game using Java_TDD, JUnit, JaCoCo, Mockito.
 
-**Part1**
+**Part1**  
 **Requirement No.1**
 - whenXOutsideBoardThenRuntimeException
 - whenYOutsideBoardThenRuntimeException
@@ -22,8 +22,8 @@ This is a simple TicTacToe game using Java_TDD, JUnit, JaCoCo, Mockito.
 - whenAllBoxesAreFilledThenDraw
 
 
-**Part2**
-**Additional requirements**
+**Part2**  
+**Additional requirements**  
 Users will be able to interrupt the game at any stage, 
 and the results will be saved in the MongoDB database.
 
