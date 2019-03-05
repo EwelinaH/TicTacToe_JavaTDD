@@ -4,7 +4,12 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
+import java.net.UnknownHostException;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.mockito.Mockito.mock;
 
 public class TicTacToeSpec {
 
@@ -13,9 +18,12 @@ public class TicTacToeSpec {
 
     private TicTacToe ticTacToe;
 
+    private TicTacToeCollection collection;
+
     @Before
-    public final void before()  {
-        ticTacToe = new TicTacToe();
+    public final void before() throws UnknownHostException {
+        collection = mock(TicTacToeCollection.class);
+        ticTacToe = new TicTacToe(collection);
     }
 
     @Test
@@ -108,5 +116,10 @@ public class TicTacToeSpec {
         ticTacToe.play(3,3);
         String actual = ticTacToe.play(3,2);
         assertEquals("Wynik remisowy", actual);
+    }
+
+    @Test
+    public void whenInstantiatedThenSetCollection(){
+        assertNotNull(ticTacToe.getTicTacToeCollection());
     }
 }

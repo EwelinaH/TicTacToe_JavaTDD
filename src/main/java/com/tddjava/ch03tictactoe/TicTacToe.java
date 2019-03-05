@@ -1,11 +1,28 @@
 package com.tddjava.ch03tictactoe;
 
+import java.net.UnknownHostException;
+
 public class TicTacToe {
     private Character[][] board = {{'\0', '\0', '\0'}, {'\0', '\0', '\0'}, {'\0', '\0', '\0'}};
     // table 3x3 with empty places
 
     private char lastPlayer = '\0';
     private static final int SIZE = 3;
+
+    private TicTacToeCollection ticTacToeCollection;
+
+    protected TicTacToeCollection getTicTacToeCollection(){
+        return ticTacToeCollection;
+    }
+
+    public TicTacToe() throws UnknownHostException {
+        this(new TicTacToeCollection());
+    }
+
+    protected TicTacToe(TicTacToeCollection collection){
+        ticTacToeCollection = collection;
+    }
+
 
     public String play(int x, int y) {
         checkAxis(x);
