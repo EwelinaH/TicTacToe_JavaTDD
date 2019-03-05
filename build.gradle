@@ -19,6 +19,14 @@ dependencies {
     testCompile 'org.mockito:mockito-all:1.+'
 }
 
+//test{
+//    include '**/*Spec.class'
+//}
+
+task testInteg(type: Test){
+    include '**/*Integ.class'
+}
+
 jacoco {
     toolVersion = "0.8.2"
 }

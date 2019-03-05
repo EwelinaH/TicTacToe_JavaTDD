@@ -8,6 +8,7 @@ public class TicTacToe {
 
     private char lastPlayer = '\0';
     private static final int SIZE = 3;
+    public static final String NO_WINNER = "Brak zwyciezcy";
 
     private TicTacToeCollection ticTacToeCollection;
 
@@ -40,7 +41,7 @@ public class TicTacToe {
         } else if (isDraw()){
             return "Wynik remisowy";
         }else {
-            return "Brak zwyciezcy";
+            return NO_WINNER;
         }
     }
 
