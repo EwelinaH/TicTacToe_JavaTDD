@@ -11,6 +11,8 @@ public class TicTacToe {
 
     private TicTacToeCollection ticTacToeCollection;
 
+    private int turn = 0;
+
     protected TicTacToeCollection getTicTacToeCollection(){
         return ticTacToeCollection;
     }
@@ -27,7 +29,7 @@ public class TicTacToe {
         checkAxis(x);
         checkAxis(y);
         lastPlayer = nextPlayer();
-        setBox(new TickTackToeBean(1, x, y, lastPlayer));
+        setBox(new TickTackToeBean(++turn, x, y, lastPlayer));
 
         if (isWin(x, y)){
             return "Wygral " + lastPlayer;

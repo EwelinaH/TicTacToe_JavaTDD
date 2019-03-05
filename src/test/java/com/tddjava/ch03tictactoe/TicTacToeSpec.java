@@ -138,4 +138,14 @@ public class TicTacToeSpec {
         exception.expect(RuntimeException.class);
         ticTacToe.play(move.getX(), move.getY());
     }
+
+    @Test
+    public void whenPlayInvokedMultipleTimesThenTurnIncreases(){
+        TickTackToeBean move1 = new TickTackToeBean(1,1,1,'X');
+        ticTacToe.play(move1.getX(), move1.getY());
+        verify(collection).saveMove(move1);
+        TickTackToeBean move2 = new TickTackToeBean(2,1,2,'0');
+        ticTacToe.play(move2.getX(), move2.getY());
+        verify(collection).saveMove(move2);
+    }
 }
