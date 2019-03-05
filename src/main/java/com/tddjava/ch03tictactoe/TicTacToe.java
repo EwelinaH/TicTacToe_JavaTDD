@@ -18,11 +18,15 @@ public class TicTacToe {
     }
 
     public TicTacToe() throws UnknownHostException {
-        this(new TicTacToeCollection());
+        this (new TicTacToeCollection());
     }
 
     protected TicTacToe(TicTacToeCollection collection){
         ticTacToeCollection = collection;
+        if (!ticTacToeCollection.drop()){
+            throw new RuntimeException("Nieudane usuniecie z bazy");
+        }
+
     }
 
     public String play(int x, int y) {
