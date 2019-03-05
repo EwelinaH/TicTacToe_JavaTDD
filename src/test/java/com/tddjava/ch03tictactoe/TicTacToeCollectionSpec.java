@@ -1,5 +1,6 @@
 package com.tddjava.ch03tictactoe;
 
+import com.mongodb.MongoException;
 import org.jongo.MongoCollection;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,12 +35,25 @@ public class TicTacToeCollectionSpec {
     }
 
     @Test
-    public void whenSaveMoveThenInvokeMongoCollectionSave(){
-        MongoCollection mongoCollection = mock(MongoCollection.class);
+    public void whenSaveMoveThenInvokeMongoCollectonSave(){
         doReturn(mongoCollection).when(collection).getMongoCollection();
         collection.saveMove(bean);
         verify(mongoCollection, times(1)).save(bean);
     }
+
+    @Test
+    public void whenSaveMoveThenReturnTrue(){
+        doReturn(mongoCollection).when(collection).getMongoCollection();
+        assertTrue(collection.saveMove(bean));
+    }
+
+    @Test
+    public void givenExceptionWhenSaveMoveThenReturnFalse(){
+        doThrow(new MongoException("Bla")).when(mongoCollection).save(any(TickTackToeBean.class));
+        doReturn(mongoCollection).when(collection).getMongoCollection();
+        assertFalse(collection.saveMove(bean));
+    }
+
 
 
 }
