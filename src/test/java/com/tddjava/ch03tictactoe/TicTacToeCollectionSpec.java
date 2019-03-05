@@ -61,6 +61,17 @@ public class TicTacToeCollectionSpec {
         verify(mongoCollection).drop();
     }
 
+    @Test
+    public void whenDropThenReturnTrue(){
+        doReturn(mongoCollection).when(collection).getMongoCollection();
+        assertTrue(collection.drop());
+    }
 
+    @Test
+    public void givenExceptionWhenDropThenReturnFalse(){
+        doThrow(new MongoException("Bla")).when(mongoCollection).drop();
+        doReturn(mongoCollection).when(collection).getMongoCollection();
+        assertFalse(collection.drop());
+    }
 
 }
