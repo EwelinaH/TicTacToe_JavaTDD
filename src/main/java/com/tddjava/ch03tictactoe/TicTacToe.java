@@ -79,7 +79,10 @@ public class TicTacToe {
                     new RuntimeException("Pole jest juz zajete!");
     } else {
             board[bean.getX() - 1][bean.getY() - 1] = lastPlayer;
-            getTicTacToeCollection().saveMove(bean);
+            if (!getTicTacToeCollection().saveMove(bean)){
+                throw new RuntimeException(
+                        "Nieudany zapis w bazie danych");
+            }
         }
     }
 
