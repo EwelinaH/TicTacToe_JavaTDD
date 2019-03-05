@@ -35,7 +35,7 @@ public class TicTacToeCollectionSpec {
     }
 
     @Test
-    public void whenSaveMoveThenInvokeMongoCollectonSave(){
+    public void whenSaveMoveThenInvokeMongoCollectionSave(){
         doReturn(mongoCollection).when(collection).getMongoCollection();
         collection.saveMove(bean);
         verify(mongoCollection, times(1)).save(bean);
@@ -52,6 +52,13 @@ public class TicTacToeCollectionSpec {
         doThrow(new MongoException("Bla")).when(mongoCollection).save(any(TickTackToeBean.class));
         doReturn(mongoCollection).when(collection).getMongoCollection();
         assertFalse(collection.saveMove(bean));
+    }
+
+    @Test
+    public void whenDropThenInvokeMongoCollectionDrop(){
+        doReturn(mongoCollection).when(collection).getMongoCollection();
+        collection.drop();
+        verify(mongoCollection).drop();
     }
 
 

@@ -26,6 +26,9 @@ public class TicTacToeCollection {
         } catch (Exception e) {
             return false;
         }
+    }
 
+    public void drop(){
+        getMongoCollection().drop();
     }
 }
