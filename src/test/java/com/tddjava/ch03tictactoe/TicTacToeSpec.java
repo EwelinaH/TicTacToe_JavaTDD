@@ -10,6 +10,7 @@ import java.net.UnknownHostException;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 public class TicTacToeSpec {
 
@@ -121,5 +122,12 @@ public class TicTacToeSpec {
     @Test
     public void whenInstantiatedThenSetCollection(){
         assertNotNull(ticTacToe.getTicTacToeCollection());
+    }
+
+    @Test
+    public void whenPlayThenSaveMoveIsInvoked(){
+        TickTackToeBean move = new TickTackToeBean(1,1,3,'X');
+        ticTacToe.play(move.getX(), move.getY());
+        verify(collection).saveMove(move);
     }
 }

@@ -23,12 +23,11 @@ public class TicTacToe {
         ticTacToeCollection = collection;
     }
 
-
     public String play(int x, int y) {
         checkAxis(x);
         checkAxis(y);
         lastPlayer = nextPlayer();
-        setBox(x, y, lastPlayer);
+        setBox(new TickTackToeBean(1, x, y, lastPlayer));
 
         if (isWin(x, y)){
             return "Wygral " + lastPlayer;
@@ -74,12 +73,13 @@ public class TicTacToe {
         }
     }
 
-    private void setBox(int x, int y, char lastPlayer) {
-        if (board[x - 1][y - 1] != '\0'){
+    private void setBox(TickTackToeBean bean) {
+        if (board[bean.getX() - 1][bean.getY() - 1] != '\0'){
             throw
                     new RuntimeException("Pole jest juz zajete!");
     } else {
-            board[x - 1][y - 1] = lastPlayer;
+            board[bean.getX() - 1][bean.getY() - 1] = lastPlayer;
+            getTicTacToeCollection().saveMove(bean);
         }
     }
 
