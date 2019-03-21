@@ -1,5 +1,5 @@
 
-This is a simple TicTacToe game using Java_TDD, JUnit, JaCoCo, Mockito.
+This is a simple TicTacToe game created using Java, Gradle, JUnit, JaCoCo, Mockito, based on TDD.  
 
 **Part1**  
 **Requirement No.1**
@@ -20,7 +20,6 @@ This is a simple TicTacToe game using Java_TDD, JUnit, JaCoCo, Mockito.
 
 **Requirement No.4**
 - whenAllBoxesAreFilledThenDraw
-
 
 **Part2**  
 **Additional requirements**  
